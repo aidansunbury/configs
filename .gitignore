@@ -2,15 +2,6 @@
 *
 !.gitignore
 
-# Ignore binary images globally
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.webp
-*.ico
-*.svg
-
 # ── Cross-platform configs (sync with mac) ─────────────────
 
 # Terminal emulators
@@ -86,3 +77,12 @@ waybar/nohup.out
 
 !mako/
 !mako/config
+
+# ── Re-ignore binary images (must be after whitelists) ──────
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.ico
+*.svg

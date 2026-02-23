@@ -1,0 +1,1 @@
+I need a command to shift every window in a given context to another context. this would be nicer than the current setup of moving things individually

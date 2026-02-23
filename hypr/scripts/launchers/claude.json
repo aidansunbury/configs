@@ -1,0 +1,23 @@
+{
+  "name": "Claude Development Setup",
+  "description": "Claude.ai web app and Claude Code terminal",
+  "version": "1.0",
+  "workspaces": {
+    "6": [
+      {
+        "type": "webapp",
+        "app": "google-chrome-stable",
+        "url": "https://claude.ai/new",
+        "args": ["--new-window", "--ozone-platform=wayland"],
+        "delay": 1500
+      },
+     {
+        "type": "webapp",
+        "app": "google-chrome-stable",
+        "url": "https://github.com",
+        "args": ["--new-window", "--ozone-platform=wayland"],
+        "delay": 1500
+      }
+    ]
+  }
+}

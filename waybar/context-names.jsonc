@@ -1,0 +1,9 @@
+{
+  // Context names mapping
+  // Add or modify context numbers and their names here
+  "6": "docs agent",
+  "7": "school",
+  "10": "164"
+  // Add more contexts as needed, e.g.:
+  // "3": "personal",
+}
