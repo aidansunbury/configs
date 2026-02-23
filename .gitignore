@@ -59,6 +59,22 @@ nvim/plugin/
 !fastfetch/
 !fastfetch/config.jsonc
 
+# ── macOS-only configs ──────────────────────────────────────
+
+# OmniWM (window manager)
+!omniwm/
+!omniwm/settings.json
+
+# Raycast (launcher)
+!raycast/
+!raycast/**
+
+# Graphite (git stacking)
+!graphite/
+!graphite/aliases
+# Exclude graphite auth/user config
+graphite/user_config
+
 # ── Linux-only configs (omarchy / hyprland) ─────────────────
 
 !hypr/
