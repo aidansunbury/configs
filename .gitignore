@@ -1,0 +1,88 @@
+# Ignore everything by default
+*
+!.gitignore
+
+# Ignore binary images globally
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.ico
+*.svg
+
+# ── Cross-platform configs (sync with mac) ─────────────────
+
+# Terminal emulators
+!ghostty/
+!ghostty/config
+!alacritty/
+!alacritty/alacritty.toml
+!kitty/
+!kitty/kitty.conf
+
+# Shell
+!fish/
+!fish/**
+# Exclude fish runtime/sensitive state
+fish/fish_variables
+fish/secrets.fish
+fish/completions/
+
+# Editor configs
+!nvim/
+!nvim/**
+# Exclude nvim plugin lock / generated state
+nvim/plugin/
+
+!zed/
+!zed/settings.json
+!zed/themes/
+!zed/themes/**
+
+# OpenCode
+!opencode/
+!opencode/opencode.jsonc
+!opencode/command/
+!opencode/command/**
+!opencode/providers/
+!opencode/providers/**
+!opencode/agent/
+!opencode/agent/**
+
+# Git tooling
+!git/
+!git/config
+!gh/
+!gh/config.yml
+!lazygit/
+!lazygit/config.yml
+
+# Dev tooling
+!mise/
+!mise/config.toml
+!btop/
+!btop/btop.conf
+!btop/themes/
+!btop/themes/**
+!fastfetch/
+!fastfetch/config.jsonc
+
+# ── Linux-only configs (omarchy / hyprland) ─────────────────
+
+!hypr/
+!hypr/**
+
+!omarchy/
+!omarchy/**
+
+!waybar/
+!waybar/**
+# Exclude waybar runtime output
+waybar/nohup.out
+
+!walker/
+!walker/config.toml
+
+!mako/
+!mako/config
