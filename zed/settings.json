@@ -7,6 +7,19 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "terminal": {
+    "env": {}
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "base_keymap": "VSCode",
+  "minimap": {
+    "show": "never"
+  },
+  "show_edit_predictions": true,
   "features": {
     "edit_prediction_provider": "none"
   },
@@ -22,6 +35,8 @@
   "soft_wrap": "editor_width",
   "languages": {
     "TypeScript": {
+      "show_edit_predictions": true,
+      "soft_wrap": "editor_width",
       "format_on_save": "on"
     }
   }

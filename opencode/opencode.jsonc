@@ -11,5 +11,11 @@
         }
       }
     }
+  },
+  "mcp": {
+    "datadog": {
+      "type": "remote",
+      "url": "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp"
+    }
   }
 }

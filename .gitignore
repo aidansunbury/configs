@@ -1,6 +1,7 @@
 # Ignore everything by default
 *
 !.gitignore
+!AGENTS.md
 
 # ── Cross-platform configs (sync with mac) ─────────────────
 
@@ -44,6 +45,7 @@ nvim/plugin/
 # Git tooling
 !git/
 !git/config
+!git/ignore
 !gh/
 !gh/config.yml
 !lazygit/
