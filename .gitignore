@@ -68,6 +68,7 @@ nvim/plugin/
 !omniwm/settings.json
 
 # hammerspoon
+!hammerspoon/
 !hammerspoon/**
 !hammerspoon/init.lua
 
