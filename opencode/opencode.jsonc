@@ -1,21 +1,34 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "system",
   "model": "opencode/zen-k2.5",
-  "plugin": ["@franlol/opencode-md-table-formatter@0.0.3","@mohak34/opencode-notifier@latest"],
+  "plugin": [
+    "@franlol/opencode-md-table-formatter@0.0.3",
+    "@mohak34/opencode-notifier@latest",
+  ],
   "agent": {
     "docs": {
       "permission": {
         "external_directory": {
-          "~/.docs-agent/**": "allow"
-        }
-      }
-    }
+          "~/.docs-agent/**": "allow",
+        },
+      },
+    },
   },
   "mcp": {
     "datadog": {
+      "enabled": false,
       "type": "remote",
-      "url": "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp"
-    }
-  }
+      "url": "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp",
+    },
+    "linear": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://mcp.linear.app/mcp",
+    },
+    "notion": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://mcp.notion.com/mcp",
+    },
+  },
 }

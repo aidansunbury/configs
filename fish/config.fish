@@ -8,6 +8,8 @@ switch (uname)
         # macOS: Homebrew
         fish_add_path /opt/homebrew/bin
         fish_add_path /opt/homebrew/sbin
+        fish_add_path /opt/homebrew/opt/postgresql@18/bin
+        fish_add_path /Applications/SnowflakeCLI.app/Contents/MacOS
         
         # macOS: SSH key (quiet mode)
         ssh-add -q ~/.ssh/id_ed25519_github 2>/dev/null
@@ -73,8 +75,12 @@ abbr gcl "git checkout -- . && git clean -fd"
 switch (uname)
     case Darwin
         abbr gho "git remote get-url origin | xargs open"
+        abbr ghob "gh pr view --web"
+        abbr gtob "gt pr"
     case Linux
         abbr gho "git remote get-url origin | xargs xdg-open"
+        abbr ghob "gh pr view --web"
+        abbr gtob "gt pr"
 end
 
 function gcp

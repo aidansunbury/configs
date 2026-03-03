@@ -69,7 +69,7 @@ nvim/plugin/
 
 # hammerspoon
 !hammerspoon/**
-!!hammerspoon/init.lua
+!hammerspoon/init.lua
 
 # Raycast (launcher)
 !raycast/
