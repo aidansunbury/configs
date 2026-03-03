@@ -67,6 +67,10 @@ nvim/plugin/
 !omniwm/
 !omniwm/settings.json
 
+# hammerspoon
+!hammerspoon/**
+!!hammerspoon/init.lua
+
 # Raycast (launcher)
 !raycast/
 !raycast/**
