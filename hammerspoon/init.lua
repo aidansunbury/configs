@@ -87,3 +87,114 @@ end)
 -- hs.hotkey.bind({"cmd"}, "n", function()
 --     os.execute("open 'https://notion.so'")
 -- end)
+
+local copyToastTimer = nil
+local copyToastHideTimer = nil
+local copyToastBackground = nil
+local copyToastText = nil
+
+local function copyLabel()
+    local available = hs.pasteboard.typesAvailable() or {}
+
+    if available.image then
+        return "Image copied"
+    end
+
+    if available.URL then
+        local urls = hs.pasteboard.readURL(nil, true)
+        local firstUrl = nil
+
+        if type(urls) == "table" then
+            firstUrl = urls[1]
+        else
+            firstUrl = urls
+        end
+
+        if type(firstUrl) == "string" and string.sub(firstUrl, 1, 7) == "file://" then
+            return "File copied"
+        end
+    end
+
+    if available.string or available.styledText then
+        return "Text copied"
+    end
+
+    return "Copied"
+end
+
+local function hideCopyToast()
+    if copyToastHideTimer then
+        copyToastHideTimer:stop()
+        copyToastHideTimer = nil
+    end
+
+    if copyToastText then
+        copyToastText:delete()
+        copyToastText = nil
+    end
+
+    if copyToastBackground then
+        copyToastBackground:delete()
+        copyToastBackground = nil
+    end
+end
+
+local function showCopyToast()
+    hideCopyToast()
+
+    local label = copyLabel()
+    local screenFrame = hs.screen.mainScreen():frame()
+    local textSize = 15
+    local textFrame = hs.drawing.getTextDrawingSize(label, {
+        font = ".AppleSystemUIFont",
+        size = textSize,
+    })
+    local toastWidth = math.max(150, math.ceil(textFrame.w) + 40)
+    local toastHeight = 42
+    local marginRight = 20
+    local marginTop = 10
+    local backgroundFrame = {
+        x = screenFrame.x + screenFrame.w - toastWidth - marginRight,
+        y = screenFrame.y + marginTop,
+        w = toastWidth,
+        h = toastHeight,
+    }
+
+    local textDrawFrame = {
+        x = backgroundFrame.x + (backgroundFrame.w - textFrame.w) / 2,
+        y = backgroundFrame.y + (backgroundFrame.h - textFrame.h) / 2,
+        w = textFrame.w,
+        h = textFrame.h,
+    }
+
+    copyToastBackground = hs.drawing.rectangle(backgroundFrame)
+        :setFill(true)
+        :setFillColor({white = 0.1, alpha = 0.9})
+        :setStroke(false)
+        :setRoundedRectRadii(8, 8)
+        :setLevel(hs.drawing.windowLevels.floating)
+
+    copyToastText = hs.drawing.text(textDrawFrame, label)
+        :setTextColor({white = 1, alpha = 1})
+        :setTextFont(".AppleSystemUIFont")
+        :setTextSize(textSize)
+        :setLevel(hs.drawing.windowLevels.floating)
+
+    copyToastBackground:show()
+    copyToastText:show()
+
+    copyToastHideTimer = hs.timer.doAfter(1.2, hideCopyToast)
+end
+
+local copyWatcher = hs.pasteboard.watcher.new(function()
+    if copyToastTimer then
+        copyToastTimer:stop()
+    end
+
+    copyToastTimer = hs.timer.doAfter(0.12, function()
+        showCopyToast()
+        copyToastTimer = nil
+    end)
+end)
+
+copyWatcher:start()

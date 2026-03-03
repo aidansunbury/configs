@@ -44,7 +44,7 @@
 shell-integration = fish
 font-size = 24
 keybind = shift+enter=text:\n
-copy-on-select=clipboard
+copy-on-select = clipboard
 theme = Broadcast
 # Slowdown mouse scrolling
 mouse-scroll-multiplier = 0.95
