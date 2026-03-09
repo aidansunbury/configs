@@ -15,6 +15,11 @@
     },
   },
   "mcp": {
+    "buildkite": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://mcp.buildkite.com/mcp/readonly",
+    },
     "datadog": {
       "enabled": false,
       "type": "remote",
@@ -30,5 +35,21 @@
       "type": "remote",
       "url": "https://mcp.notion.com/mcp",
     },
+    "cachebro": {
+      "type": "local",
+      "command": ["npx", "cachebro", "serve"],
+    },
+    "codemogger": {
+      "command": "npx",
+      "args": ["-y", "codemogger", "mcp"],
+    },
+    "sightglass": {
+      "enabled": true,
+      "type": "remote",
+      "url": "http://localhost:4444/api/mcp",
+    },
+  },
+  "experimental": {
+    "disable_paste_summary": true,
   },
 }
