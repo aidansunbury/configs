@@ -34,6 +34,7 @@ switch (uname)
 end
 
 # ── Cross-Platform Paths ────────────────────────────────────
+fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.opencode/bin
 fish_add_path $HOME/.sst/bin
 
