@@ -55,6 +55,7 @@ test -f ~/.config/fish/secrets.fish && source ~/.config/fish/secrets.fish
 abbr c "code ."
 abbr z "zed ."
 abbr o "opencode"
+abbr ops "bash ~/.config/fish/scripts/opencode-session-switcher.sh"
 abbr cl "clear"
 abbr b "cd ../"
 abbr bb "cd ../../"
