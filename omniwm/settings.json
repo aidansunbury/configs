@@ -97,7 +97,7 @@
   "dwindleUseGlobalGaps" : true,
   "focusFollowsMouse" : true,
   "focusFollowsWindowToMonitor" : true,
-  "gapSize" : 8,
+  "gapSize" : 2,
   "gestureFingerCount" : 3,
   "gestureInvertDirection" : true,
   "hiddenBarIsCollapsed" : true,
@@ -375,7 +375,7 @@
       "id" : "balanceSizes"
     },
     {
-      "binding" : "Unassigned",
+      "binding" : "Option+R",
       "id" : "moveToRoot"
     },
     {
@@ -443,7 +443,7 @@
       "id" : "openCommandPalette"
     },
     {
-      "binding" : "Option+Shift+R",
+      "binding" : "Unassigned",
       "id" : "raiseAllFloatingWindows"
     },
     {
