@@ -1,3 +1,15 @@
+-- Reload config from terminal: hs -c "hs.reload()"
+
+-- Modifier key configuration
+-- Change this to use a different main modifier key: "option", "cmd", "ctrl", "shift"
+local hyper = {"option"}
+
+-- Load IPC module and auto-install CLI if missing (required for `hs` terminal command)
+local ipc = require("hs.ipc")
+if not ipc.cliStatus() then
+    ipc.cliInstall()
+end
+
 -- Screenshot binding
 hs.hotkey.bind({}, "f13", function()
     -- -c: force to clipboard
@@ -5,85 +17,54 @@ hs.hotkey.bind({}, "f13", function()
     hs.task.new("/usr/sbin/screencapture", nil, {"-c", "-i"}):start()
 end)
 
--- Application Launch Bindings
--- Uncomment the bindings you want to use
 
--- Terminal (Cmd + Return)
-hs.hotkey.bind({"option"}, "Return", function()
+-- Terminal (Hyper + Return)
+hs.hotkey.bind(hyper, "Return", function()
     os.execute("open -n /Applications/Ghostty.app")
 end)
 
--- File Manager (Cmd + F)
--- hs.hotkey.bind({"cmd"}, "f", function()
---     os.execute("open -n /Applications/Finder.app")
--- end)
+-- Cmux (Hyper + Shift + Return)
+hs.hotkey.bind({hyper[1], "shift"}, "Return", function()
+    os.execute("open -n /Applications/cmux.app")
+end)
 
--- Chrome Default Profile (Cmd + G)
-hs.hotkey.bind({"option"}, "g", function()
+-- Chrome Default Profile (personal)
+hs.hotkey.bind(hyper, "g", function()
     os.execute("open -na 'Google Chrome' --args --profile-directory='Default' --new-window")
 end)
 
--- Chrome Profile 4 (Cmd + Shift + G)
-hs.hotkey.bind({"option", "shift"}, "g", function()
-    os.execute("open -na 'Google Chrome' --args --profile-directory='Profile 4' --new-window")
+-- Chrome Profile 1 (work)
+hs.hotkey.bind({hyper[1], "shift"}, "g", function()
+    os.execute("open -na 'Google Chrome' --args --profile-directory='Profile 1' --new-window")
 end)
 
--- Music/Spotify (Cmd + M)
--- hs.hotkey.bind({"cmd"}, "m", function()
---     os.execute("open -n /Applications/Spotify.app")
--- end)
+-- Zed Editor (Hyper + Z)
+hs.hotkey.bind(hyper, "z", function()
+    os.execute("open -n /Applications/Zed.app")
+end)
 
--- System Monitor (Cmd + T)
--- hs.hotkey.bind({"cmd"}, "t", function()
---     os.execute("open -n /Applications/Activity\\ Monitor.app")
--- end)
+-- VS Code (Hyper + C)
+hs.hotkey.bind(hyper, "c", function()
+    os.execute("open -n /Applications/Visual\\ Studio\\ Code.app")
+end)
 
--- Obsidian (Cmd + O)
--- hs.hotkey.bind({"cmd"}, "o", function()
---     os.execute("open -n /Applications/Obsidian.app")
--- end)
-
--- Zed Editor (Cmd + Z)
--- hs.hotkey.bind({"cmd"}, "z", function()
---     os.execute("open -n /Applications/Zed.app")
--- end)
-
--- VS Code (Cmd + C)
--- hs.hotkey.bind({"cmd"}, "c", function()
---     os.execute("open -n /Applications/Visual\\ Studio\\ Code.app")
--- end)
-
--- OpenCode (Cmd + U)
--- hs.hotkey.bind({"cmd"}, "u", function()
---     os.execute("open -n /Applications/Terminal.app")
--- end)
-
--- GitHub Web App (Cmd + H)
--- hs.hotkey.bind({"cmd"}, "h", function()
---     os.execute("open 'https://github.com'")
--- end)
-
--- Graphite Web App (Cmd + R)
--- hs.hotkey.bind({"cmd"}, "r", function()
---     os.execute("open 'https://app.graphite.com/'")
--- end)
-
--- YouTube (Cmd + Y)
--- hs.hotkey.bind({"cmd"}, "y", function()
---     os.execute("open 'https://youtube.com/'")
--- end)
-
--- Slack (Cmd + S)
-hs.hotkey.bind({"option"}, "s", function()
+-- Slack (Hyper + S)
+hs.hotkey.bind(hyper, "s", function()
     os.execute("open -n /Applications/Slack.app")
 end)
 
--- Linear (Cmd + L)
--- hs.hotkey.bind({"cmd"}, "l", function()
---     os.execute("open 'https://linear.app'")
--- end)
+-- Linear
+hs.hotkey.bind(hyper, "l", function()
+    os.execute("open -n /Applications/Linear.app")
+end)
 
--- Notion (Cmd + N)
-hs.hotkey.bind({"option"}, "n", function()
-    os.execute("open -n /Applications/Notion.app")
+-- iMessage (Hyper + M)
+hs.hotkey.bind(hyper, "m", function()
+    os.execute("open -n /System/Applications/Messages.app")
+end)
+
+-- Notion (launch in Chrome)
+-- --new-window launches it in a new window, otherwise will open it as a new tab
+hs.hotkey.bind(hyper, "n", function()
+    os.execute("open -na 'Google Chrome' --args --profile-directory='Profile 1' --new-window https://www.notion.so/")
 end)
