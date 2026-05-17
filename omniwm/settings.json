@@ -175,7 +175,7 @@
       "id" : "moveToWorkspace.8"
     },
     {
-      "binding" : "Control+Option+Tab",
+      "binding" : "Option+Control+Tab",
       "id" : "workspaceBackAndForth"
     },
     {

@@ -66,6 +66,7 @@ nvim/plugin/
 # OmniWM (window manager)
 !omniwm/
 !omniwm/settings.json
+!omniwm/settings.toml
 !omniwm/README.md
 
 # hammerspoon
