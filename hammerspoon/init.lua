@@ -58,6 +58,11 @@ hs.hotkey.bind(hyper, "l", function()
     os.execute("open -n /Applications/Linear.app")
 end)
 
+-- 1Password (Hyper + P)
+hs.hotkey.bind(hyper, "p", function()
+    os.execute("open -n /Applications/1Password.app")
+end)
+
 -- iMessage (Hyper + M)
 hs.hotkey.bind(hyper, "m", function()
     os.execute("open -n /System/Applications/Messages.app")

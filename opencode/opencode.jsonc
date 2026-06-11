@@ -1,67 +1,48 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode/zen-k2.5",
   "plugin": [
-    "@franlol/opencode-md-table-formatter@0.0.3",
+    // "@franlol/opencode-md-table-formatter@0.0.3",
     "opencode-cmux",
-    "opencode-sync-plugin",
   ],
   "permission": {
-    "glob": "deny",
-    "grep": "deny",
-    "read": "allow",
-    // Note, we eventually might want this to be only for reads
     "external_directory": "allow",
   },
+  "references": {
+    "opencode": {
+      "repository": "anomalyco/opencode",
+      "description": "Use for OpenCode implementation details, configuration, and documentation conventions",
+    },
+    "coder": {
+      "repository": "coder/coder",
+      "description": "Use for Coder workspace platform implementation details",
+    },
+    "executor": {
+      "repository": "rhyssullivan/executor",
+      "description": "Use for Executor implementation details and MCP behavior",
+    },
+    "infisical": {
+      "repository": "Infisical/infisical",
+      "description": "Use for Infisical secrets management implementation details",
+    },
+  },
   "mcp": {
-    "buildkite": {
-      "enabled": false,
+    "executor":{
+      "enabled": true,
       "type": "remote",
-      "url": "https://mcp.buildkite.com/mcp/readonly",
+      "url": "https://executor.sh/mcp"
     },
-    "datadog": {
-      "enabled": false,
-      "type": "remote",
-      "url": "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp",
-    },
-    "linear": {
-      "enabled": false,
-      "type": "remote",
-      "url": "https://mcp.linear.app/mcp",
-    },
-    "notion": {
-      "enabled": false,
-      "type": "remote",
-      "url": "https://mcp.notion.com/mcp",
-    },
-    "hex": {
-      "enabled": false,
-      "type": "remote",
-      "url": "https://app.hex.tech/mcp",
-    },
-    "cachebro": {
-      "type": "local",
-      "command": ["npx", "cachebro", "serve"],
-    },
-    // "codemogger": {
-    //   "type": "local",
-    //   "command": ["npx", "-y", "codemogger", "mcp"],
-    // },
     "sightglass": {
       "enabled": true,
       "type": "remote",
       "url": "http://localhost:4444/api/mcp",
     },
-    "fff": {
-      "type": "local",
-      "command": ["fff-mcp"],
-      "enabled": true,
-    },
-    "chrome-devtools": {
-      "type": "local",
-      "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
-      "enabled": false,
-    },
+  },
+  "provider": {
+    "openrouter":{
+      "options": {
+        "baseURL": "http://ai.geep-monster.ts.net/v1",
+      },
+    }
   },
   "experimental": {
     "disable_paste_summary": true,
